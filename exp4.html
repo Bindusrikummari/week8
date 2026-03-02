@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Loop Example</title>
+    <script>
+        function showObject() {
+            let student = {
+                name: "Rahul",
+                age: 21,
+                course: "BCA"
+            };
+
+            let output = "<b>for-in:</b><br>";
+            for (let key in student) {
+                output += key + " : " + student[key] + "<br>";
+            }
+
+            output += "<br><b>for-of:</b><br>";
+            for (let [key, value] of Object.entries(student)) {
+                output += key + " : " + value + "<br>";
+            }
+
+            output += "<br><b>forEach:</b><br>";
+            Object.keys(student).forEach(function(key) {
+                output += key + " : " + student[key] + "<br>";
+            });
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+
+<button onclick="showObject()">Show Object Data</button>
+<p id="result"></p>
+
+</body>
+</html>

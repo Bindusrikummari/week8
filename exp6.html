@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Denomination</title>
+    <script>
+        function calculateDenomination() {
+            let amount = parseInt(document.getElementById("amount").value);
+            let notes = [100, 50, 20, 10, 5, 2, 1];
+            let output = "";
+
+            for (let i = 0; i < notes.length; i++) {
+                let count = Math.floor(amount / notes[i]);
+                if (count > 0) {
+                    output += count + " - " + notes[i] + "'s<br>";
+                    amount %= notes[i];
+                }
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+
+Enter Amount: <input type="text" id="amount">
+<button onclick="calculateDenomination()">Calculate</button>
+
+<p id="result"></p>
+
+</body>
+</html>
